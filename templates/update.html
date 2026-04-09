@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block site_title %}
+Update Article
+{% endblock site_title %}
+
+{% block content %}
+<form action="" method="post">
+{% csrf_token %}
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+            <input
+                type="text"
+                class="form-control"
+                name="title"
+                id="title"
+                value="{{ article.title }}"
+                aria-describedby="helpTitle"
+                placeholder=""/>
+            <small id="helpTitle" class="form-text text-muted">Update title of article</small>
+    </div>
+
+    <div class="mb-3">
+        <label for="content" class="form-label">Content</label>
+        <textarea class="form-control" name="content" id="content" rows="3">{{ article.content }}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Article</button>
+</form>
+{% endblock content %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/tinymce@5/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#content'
+    });
+</script>
+{% endblock extra_js %}
