@@ -1,0 +1,9 @@
+<div class="card text-start">
+    <div class="card-body">
+        <h4 class="card-title">{{ article.title }}</h4>
+        <p class="card-text">{{ article.content | truncatewords:200  | safe }}</p>
+        <a name= "Read {{article.title}}" class="btn btn-primary" href="{%url 'articles:detail' article.slug%}">Read Article</a>
+        <a class="btn btn-success" href="{%url 'articles:update' article.slug%}">Update Article</a>
+        <a class="btn btn-danger" href="{%url 'articles:delete' article.slug%}">Delete Article</a>
+    </div>
+</div>
